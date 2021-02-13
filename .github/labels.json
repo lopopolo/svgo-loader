@@ -20,6 +20,11 @@
     "description": "Area: Infrastructure for running an open source project."
   },
   {
+    "name": "A-release",
+    "color": "f7e101",
+    "description": "Area: npmjs.org releases and version bumps."
+  },
+  {
     "name": "A-security",
     "color": "f7e101",
     "description": "Area: security vulnerabilities and unsoundness issues."
