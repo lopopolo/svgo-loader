@@ -18,15 +18,12 @@ module.exports = function svgoLoader(source) {
   svgo.optimize(source, { path: this.resourcePath }).then(
     (result) => {
       callback(null, result.data);
-      return;
     },
     (error) => {
       if (error instanceof Error) {
-        callback(error);
-        return;
+        return callback(error, "");
       }
-      callback(new Error(error));
-      return;
+      return callback(new Error(error), "");
     }
   );
 };
