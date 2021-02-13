@@ -1,5 +1,16 @@
 # svgo loader for webpack
 
+[![GitHub Actions](https://github.com/lopopolo/svgo-loader/workflows/CI/badge.svg)][gh-actions-ci]
+[![NPM](https://img.shields.io/npm/v/@hyperbola/svgo-loader)][npm-package]
+
+`@hyperbola/svgo-loader` is a zero-dependency, evergreen replacement for
+[`svgo-loader`]. `@hyperbola/svgo-loader` only supports the latest webpack@5
+release.
+
+[gh-actions-ci]: https://github.com/lopopolo/avgo-loader/actions
+[npm-package]: https://www.npmjs.com/package/@hyperbola/svgo-loader
+[`svgo-loader`]: https://www.npmjs.com/package/svgo-loader
+
 ## Install
 
 ```
@@ -44,7 +55,9 @@ module.exports = {
 }
 ```
 
-### Put the SVGO config into loader's `options`
+### With SVGO configuration
+
+Pass configuration to SVGO by including it into the loader's `options`:
 
 ```javascript
 module.exports = {
