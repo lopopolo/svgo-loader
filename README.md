@@ -13,7 +13,7 @@ added to your `package.json`.
 
 Upstream webpack documentation: [loaders][webpack-loaders].
 
-`@lopopolo/svgo-loader` passes config from `webpack.config.js` directly to the
+`@hyperbola/svgo-loader` passes config from `webpack.config.js` directly to the
 [`svgo`] library.
 
 [webpack-loaders]: https://webpack.js.org/concepts/loaders/
