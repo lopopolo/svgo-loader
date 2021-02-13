@@ -19,7 +19,7 @@ Upstream webpack documentation: [loaders][webpack-loaders].
 [webpack-loaders]: https://webpack.js.org/concepts/loaders/
 [`svgo`]: https://github.com/svg/svgo
 
-### Put the SVGO config into loader's `options`
+### With `asset` modules
 
 ```javascript
 const svgToMiniDataURI = require("mini-svg-data-uri");
@@ -36,6 +36,32 @@ module.exports = {
           dataUrl: (content) => {
             content = content.toString();
             return svgToMiniDataURI(content);
+          },
+        },
+      },
+    ]
+  }
+}
+```
+
+### Put the SVGO config into loader's `options`
+
+```javascript
+module.exports = {
+  ...,
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        type: "asset",
+        use: {
+          loader: "@hyperbola/svgo-loader",
+          options: {
+            plugins: [
+              { removeTitle: true },
+              { convertColors: { shorthex: false } },
+              { convertPathData: false },
+            ],
           },
         },
       },
