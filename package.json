@@ -6,7 +6,7 @@
     "svgo",
     "webpack"
   ],
-  "homepage": "https://github.com/lopopolo/svgo-loader",
+  "homepage": "https://github.com/lopopolo/svgo-loader#readme",
   "bugs": "https://github.com/lopopolo/svgo-loader/issues",
   "license": "MIT",
   "author": "Roman Pominov <rpominov@gmail.com> (http://pozadi.github.io/)",
