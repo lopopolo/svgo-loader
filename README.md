@@ -71,9 +71,9 @@ module.exports = {
           loader: "@hyperbola/svgo-loader",
           options: {
             plugins: [
-              { removeTitle: true },
-              { convertColors: { shorthex: false } },
-              { convertPathData: false },
+              "removeTitle",
+              { name: "convertColors", params: { shorthex: false } },
+              { name: "convertPathData", active: false },
             ],
           },
         },
