@@ -1,29 +1,35 @@
-const Svgo = require("svgo");
+const svgo = require("svgo");
 
 module.exports = function svgoLoader(source) {
   this.cacheable(true);
-  const callback = this.async();
+  const callback = this.callback;
 
-  const options = Object.assign({}, {}, this.getOptions());
+  const options = Object.assign(Object.create(null), this.getOptions(), {
+    path: this.resourcePath,
+  });
 
-  // See upstream's support for loading external configuration:
-  // https://github.com/svg/svgo/blob/07ca9764f71fb946adc23f4ea9f19070d335305d/lib/svgo/coa.js#L179-L200
-  if (options.hasOwnProperty("externalConfig")) {
-    callback(new Error("`externalConfig` is unsupported`"));
+  let result;
+  try {
+    result = svgo.optimize(source, options);
+  } catch (error) {
+    if (error instanceof Error) {
+      callback(error);
+      return;
+    }
+    callback(new Error(error));
     return;
   }
 
-  const svgo = new Svgo(options);
-
-  svgo.optimize(source, { path: this.resourcePath }).then(
-    (result) => {
-      callback(null, result.data);
-    },
-    (error) => {
-      if (error instanceof Error) {
-        return callback(error, "");
-      }
-      return callback(new Error(error), "");
+  if ("error" in result) {
+    const error = result.error;
+    if (error instanceof Error) {
+      callback(error);
+      return;
     }
-  );
+    callback(new Error(error));
+    return;
+  }
+
+  callback(null, result.data);
+  return;
 };
