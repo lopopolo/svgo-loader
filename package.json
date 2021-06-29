@@ -23,7 +23,7 @@
   ],
   "dependencies": {},
   "peerDependencies": {
-    "svgo": "^2.0.3",
+    "svgo": "^2.3.1",
     "webpack": "^5.0.0"
   },
   "devDependencies": {
