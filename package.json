@@ -1,6 +1,6 @@
 {
   "name": "@hyperbola/svgo-loader",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "evergreen svgo loader for webpack",
   "keywords": [
     "svgo",
